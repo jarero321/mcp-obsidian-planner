@@ -1,21 +1,26 @@
 <div align="center">
 
-# mcp-obsidian-planner
+```
+                                  _         _     _ _
+ _ __ ___   ___ _ __         ___ | |__  ___(_) __| (_) __ _ _ __
+| '_ ` _ \ / __| '_ \ _____ / _ \| '_ \/ __| |/ _` | |/ _` | '_ \
+| | | | | | (__| |_) |_____| (_) | |_) \__ \ | (_| | | (_| | | | |
+|_| |_| |_|\___| .__/       \___/|_.__/|___/_|\__,_|_|\__,_|_| |_|
+               |_|
+```
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
+### I wanted to plan my life in Obsidian with AI. So I built an MCP server for it.
+
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
 ![NestJS](https://img.shields.io/badge/NestJS-E0234E?logo=nestjs&logoColor=white)
 ![MCP](https://img.shields.io/badge/MCP-Protocol-00d4ff)
 
-**Obsidian vault planning MCP server with GTD + PARA methodology.**
+[![Version](https://img.shields.io/badge/version-1.0.0-00d4ff?style=flat-square)](package.json)
+[![License](https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square)](LICENSE)
 
-17 tools for daily notes, inbox, tasks, projects, weekly reviews and full-text search.
+**17 MCP tools for daily notes, inbox, tasks, projects, weekly reviews and full-text search**
 
-[Getting Started](#getting-started) ·
-[Tools](#tools) ·
-[Architecture](#architecture) ·
-[Configuration](#configuration)
+[Getting Started](#getting-started) · [Tools](#tools) · [Architecture](#architecture) · [Configuration](#configuration)
 
 </div>
 
