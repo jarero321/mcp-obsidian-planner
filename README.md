@@ -1,30 +1,54 @@
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=0,2,5,30&height=180&section=header&text=mcp-obsidian-planner&fontSize=36&fontColor=fff&animation=fadeIn&fontAlignY=32" />
+
 <div align="center">
 
-```
-                                  _         _     _ _
- _ __ ___   ___ _ __         ___ | |__  ___(_) __| (_) __ _ _ __
-| '_ ` _ \ / __| '_ \ _____ / _ \| '_ \/ __| |/ _` | |/ _` | '_ \
-| | | | | | (__| |_) |_____| (_) | |_) \__ \ | (_| | | (_| | | | |
-|_| |_| |_|\___| .__/       \___/|_.__/|___/_|\__,_|_|\__,_|_| |_|
-               |_|
-```
+![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white)
+![MCP](https://img.shields.io/badge/MCP-Protocol-7c3aed?style=for-the-badge)
+![Tools](https://img.shields.io/badge/tools-17-00d4ff?style=for-the-badge)
+![License](https://img.shields.io/github/license/jarero321/mcp-obsidian-planner?style=for-the-badge)
 
-### I wanted to plan my life in Obsidian with AI. So I built an MCP server for it.
+**MCP server for Obsidian vault planning with GTD + PARA methodology. 17 tools, zero context-switching.**
 
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
-![NestJS](https://img.shields.io/badge/NestJS-E0234E?logo=nestjs&logoColor=white)
-![MCP](https://img.shields.io/badge/MCP-Protocol-00d4ff)
+<a href="https://github.com/jarero321/mcp-obsidian-planner">
+  <img src="https://img.shields.io/badge/CODE-2ea44f?style=for-the-badge&logo=github&logoColor=white" alt="code" />
+</a>
 
-[![Version](https://img.shields.io/badge/version-1.0.0-00d4ff?style=flat-square)](package.json)
-[![License](https://img.shields.io/badge/license-MIT-brightgreen?style=flat-square)](LICENSE)
-
-**17 MCP tools for daily notes, inbox, tasks, projects, weekly reviews and full-text search**
-
-[Getting Started](#getting-started) · [Tools](#tools) · [Architecture](#architecture) · [Configuration](#configuration)
+[Getting Started](#getting-started) •
+[Tools](#tools) •
+[Architecture](#architecture) •
+[Configuration](#configuration) •
+[Vault Structure](#vault-structure)
 
 </div>
 
 ---
+
+## Features
+
+| Feature | Description |
+|:--------|:------------|
+| **17 MCP Tools** | Daily notes, inbox, tasks, projects, weekly reviews, and search |
+| **GTD + PARA** | Getting Things Done inbox flow with PARA area organization |
+| **Clean Architecture** | Domain, application, and infrastructure layers with NestJS DI |
+| **Templater Support** | Renders Obsidian Templater syntax with dayjs |
+| **Path Security** | Path traversal protection on all file operations |
+| **Dual Mode** | Run as stdio (Claude) or SSE (HTTP) server |
+| **Zod Validation** | Type-safe input validation for all 17 tools |
+| **Structured Logging** | JSON logs to stderr (stdout reserved for MCP protocol) |
+
+## Tech Stack
+
+<div align="center">
+
+**Languages & Frameworks**
+
+<img src="https://skillicons.dev/icons?i=ts,nestjs,nodejs&perline=8" alt="languages" />
+
+**Infrastructure & Tools**
+
+<img src="https://skillicons.dev/icons?i=obsidian,jest,npm&perline=8" alt="infra" />
+
+</div>
 
 ## What It Does
 
@@ -36,8 +60,6 @@ Connects Claude Code (or any MCP client) directly to your Obsidian vault for str
 - **Projects** — Create with PARA areas, track status and deadlines
 - **Weekly reviews** — Auto-generate summaries with completion rates
 - **Search** — Full-text search across the vault with context
-
-Works with the [LifeOS](https://github.com/jarero321) vault structure using Templater templates and Dataview-compatible frontmatter.
 
 ---
 
@@ -110,49 +132,49 @@ npm run start:stdio
 ### Daily Notes (3)
 
 | Tool | Description |
-|------|-------------|
-| `daily_create` | Create a daily note from template. Returns existing note if already created. |
-| `daily_get` | Get a daily note with parsed sections (focus, tasks, log, gratitude, reflection). |
-| `daily_set_focus` | Set the Top 3 focus priorities for a daily note. |
+|:-----|:------------|
+| `daily_create` | Create a daily note from template. Returns existing note if already created |
+| `daily_get` | Get a daily note with parsed sections (focus, tasks, log, gratitude, reflection) |
+| `daily_set_focus` | Set the Top 3 focus priorities for a daily note |
 
 ### Inbox (4)
 
 | Tool | Description |
-|------|-------------|
-| `inbox_list` | List all inbox items grouped by priority (Urgente, Puede esperar, Algún día, Captura Rápida, Notas Rápidas). |
-| `inbox_add` | Add a new item to the inbox with timestamp. |
-| `inbox_process` | Move an inbox item to a project, daily note, area, archive, or delete it. |
-| `inbox_prioritize` | Change the priority of an inbox item between sections. |
+|:-----|:------------|
+| `inbox_list` | List all inbox items grouped by priority |
+| `inbox_add` | Add a new item to the inbox with timestamp |
+| `inbox_process` | Move an inbox item to a project, daily note, area, archive, or delete it |
+| `inbox_prioritize` | Change the priority of an inbox item between sections |
 
 ### Tasks (3)
 
 | Tool | Description |
-|------|-------------|
-| `tasks_list` | List tasks from a specific note, folder, or the entire vault. Filter by status. |
-| `task_toggle` | Toggle a task between pending `[ ]` and completed `[x]`. |
-| `task_add` | Add a new task to a note in a specific section. |
+|:-----|:------------|
+| `tasks_list` | List tasks from a specific note, folder, or the entire vault. Filter by status |
+| `task_toggle` | Toggle a task between pending `[ ]` and completed `[x]` |
+| `task_add` | Add a new task to a note in a specific section |
 
 ### Weekly Reviews (2)
 
 | Tool | Description |
-|------|-------------|
-| `weekly_summary` | Generate weekly summary: completed/pending tasks, dailies filled, project progress. |
-| `weekly_create` | Create a weekly review note from template. |
+|:-----|:------------|
+| `weekly_summary` | Generate weekly summary: completed/pending tasks, dailies filled, project progress |
+| `weekly_create` | Create a weekly review note from template |
 
 ### Search & Notes (3)
 
 | Tool | Description |
-|------|-------------|
-| `vault_search` | Full-text search across the vault with context lines. |
-| `note_read` | Read a note from the vault by its relative path. |
-| `notes_list` | List all notes in a folder with optional pattern filter. |
+|:-----|:------------|
+| `vault_search` | Full-text search across the vault with context lines |
+| `note_read` | Read a note from the vault by its relative path |
+| `notes_list` | List all notes in a folder with optional pattern filter |
 
 ### Projects (2)
 
 | Tool | Description |
-|------|-------------|
-| `projects_list` | List projects with status, area, deadline. Filter by status or area. |
-| `project_create` | Create a new project from template with area assignment. |
+|:-----|:------------|
+| `projects_list` | List projects with status, area, deadline. Filter by status or area |
+| `project_create` | Create a new project from template with area assignment |
 
 ---
 
@@ -190,11 +212,20 @@ src/
 ### Ports & Adapters
 
 | Port | Symbol | Implementation |
-|------|--------|----------------|
-| `VaultRepository` | `VAULT_REPOSITORY` | `FsVaultRepository` — File system operations with path traversal protection |
+|:-----|:-------|:---------------|
+| `VaultRepository` | `VAULT_REPOSITORY` | `FsVaultRepository` — File system with path traversal protection |
 | `NoteParser` | `NOTE_PARSER` | `MarkdownNoteParserService` — gray-matter + regex parsing |
 | `TemplateEngine` | `TEMPLATE_ENGINE` | `SimpleTemplateEngineService` — Templater syntax with dayjs |
 | `LoggerPort` | `LOGGER_PORT` | `StderrLoggerService` — JSON logs to stderr |
+
+| Aspect | Choice |
+|:-------|:-------|
+| **Architecture** | Clean Architecture with Ports & Adapters |
+| **Framework** | NestJS 11 (application context, no HTTP) |
+| **MCP SDK** | @modelcontextprotocol/sdk 1.12 |
+| **Parsing** | gray-matter (YAML) + regex (tasks, sections) |
+| **Dates** | dayjs (Templater replacement) |
+| **Validation** | Zod (tool input schemas) |
 
 ---
 
@@ -203,7 +234,7 @@ src/
 ### Environment Variables
 
 | Variable | Description | Default |
-|----------|-------------|---------|
+|:---------|:------------|:--------|
 | `VAULT_PATH` | Absolute path to Obsidian vault | (required) |
 | `DAILY_FOLDER` | Daily notes folder | `07-Daily` |
 | `INBOX_FILE` | Inbox markdown file | `01-Inbox/Inbox.md` |
@@ -211,8 +242,6 @@ src/
 | `AREAS_FOLDER` | Areas (PARA) folder | `04-Areas` |
 | `TEMPLATES_FOLDER` | Templates folder | `Templates` |
 | `ARCHIVE_FOLDER` | Archive folder | `06-Archive` |
-
-Copy `.env.example` to `.env` and adjust paths:
 
 ```bash
 cp .env.example .env
@@ -279,24 +308,10 @@ objetivo: Build the thing
 
 ---
 
-## Tech Stack
-
-```
-Runtime          Node.js 18+
-Framework        NestJS 11 (application context, no HTTP)
-MCP SDK          @modelcontextprotocol/sdk 1.12
-Parsing          gray-matter (YAML), regex (tasks, sections)
-Dates            dayjs (Templater replacement)
-Validation       Zod (tool input schemas)
-Architecture     Clean Architecture, Ports & Adapters
-```
-
----
-
 ## Scripts
 
 | Script | Description |
-|--------|-------------|
+|:-------|:------------|
 | `npm run build` | Compile TypeScript |
 | `npm run start:stdio` | Run MCP server (stdio) |
 | `npm run start:sse` | Run MCP server (SSE) |
@@ -307,6 +322,24 @@ Architecture     Clean Architecture, Ports & Adapters
 
 ---
 
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'feat: add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
 ## License
 
-MIT
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+<div align="center">
+
+**[Report Bug](https://github.com/jarero321/mcp-obsidian-planner/issues)** · **[Request Feature](https://github.com/jarero321/mcp-obsidian-planner/issues)**
+
+</div>
+
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=0,2,5,30&height=120&section=footer" />
