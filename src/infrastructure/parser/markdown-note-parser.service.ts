@@ -122,7 +122,7 @@ export class MarkdownNoteParserService implements NoteParser {
       if (listMatch && !line.startsWith('- [')) {
         let text = listMatch[1];
         // Skip blockquote instructions
-        if (text.startsWith('>') || text.startsWith('**')) continue;
+        if (text.startsWith('>')) continue;
 
         const tsMatch = text.match(TIMESTAMP_REGEX);
         const timestamp = tsMatch ? tsMatch[1] : undefined;
